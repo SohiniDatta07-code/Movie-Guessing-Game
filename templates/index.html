@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Guessing Game</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="content">
+
+            <p class="tagline">THE ULTIMATE MOVIE CHALLENGE</p>
+
+            <h1>
+                Guess The <span>Movie.</span>
+            </h1>
+
+            <p class="description">
+                Every movie has a story.
+                Every story has a name.
+                <br>
+                Can you guess it before your opponent does?
+            </p>
+
+            <a href="{{ url_for('players') }}" class="start-btn">
+    Start Game →
+            </a>
+
+            <div class="footer">
+                TWO PLAYERS. ONE CHALLENGE. ENDLESS FUN.
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

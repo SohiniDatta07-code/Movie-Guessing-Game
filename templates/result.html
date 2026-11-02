@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Game Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="content">
+
+            {% if winner %}
+
+                <p class="tagline">CHALLENGE COMPLETED</p>
+
+                <h1>Congratulations, <span>{{ winner }}!</span></h1>
+
+                <p class="description">
+                    You guessed the movie correctly!
+                    <br>
+                    The movie was:
+                    <strong>{{ movie.title() }}</strong>
+                </p>
+
+            {% else %}
+
+                <p class="tagline">GAME OVER</p>
+
+                <h1>Better Luck <span>Next Time!</span></h1>
+
+                <p class="description">
+                    You have used all 7 incorrect attempts.
+                    <br>
+                    The correct movie was:
+                    <strong>{{ movie.title() }}</strong>
+                </p>
+
+            {% endif %}
+
+            <a href="{{ url_for('home') }}" class="start-btn">
+                Play Again →
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

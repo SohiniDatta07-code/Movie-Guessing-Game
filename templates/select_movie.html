@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose a Movie</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+
+            <p class="tagline">MOVIE SELECTION</p>
+
+            <h1>Choose Your <span>Movie.</span></h1>
+
+            <p class="description">
+                Player 1, enter any movie name of your choice.
+                Keep it secret from Player 2!
+            </p>
+
+            <form action="{{ url_for('select_movie') }}" method="POST">
+
+                <div class="form-group">
+                    <label for="movie">ENTER MOVIE NAME</label>
+
+                    <input type="text"
+                           id="movie"
+                           name="movie"
+                           placeholder="Enter your movie name"
+                           required
+                           minlength="2">
+                </div>
+
+                <button type="submit" class="start-btn">
+                    Confirm Selection →
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

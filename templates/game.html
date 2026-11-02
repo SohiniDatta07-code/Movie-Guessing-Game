@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guess the Movie</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="content">
+
+            <p class="tagline">THE ULTIMATE MOVIE CHALLENGE</p>
+
+            <h1>Your Turn, <span>{{ player }}!</span></h1>
+
+            <p class="description">
+                Guess the movie using the revealed hints.
+            </p>
+
+            <!-- Hidden movie name -->
+            <h1 style="letter-spacing: 8px; color: #c5a059;">
+                {{ question }}
+            </h1>
+
+            <!-- Remaining attempts -->
+            <h3 style="color: #c5a059; margin: 25px 0;">
+                Remaining Attempts: {{ remaining_attempts }} / 7
+            </h3>
+
+            <!-- Guess one character -->
+            <form method="POST">
+
+                <div class="form-group">
+
+                    <label for="letter">
+                        GUESS ONE LETTER OR NUMBER
+                    </label>
+
+                    <input type="text"
+                           id="letter"
+                           name="letter"
+                           placeholder="Enter one character"
+                           maxlength="1">
+
+                </div>
+
+                <button type="submit"
+                        name="action"
+                        value="letter"
+                        class="start-btn">
+
+                    Submit Character →
+
+                </button>
+
+            </form>
+
+            <p style="margin: 25px 0; color: #c5a059;">
+                OR
+            </p>
+
+            <!-- Guess complete movie name -->
+            <form method="POST">
+
+                <div class="form-group">
+
+                    <label for="full_guess">
+                        GUESS THE COMPLETE MOVIE NAME
+                    </label>
+
+                    <input type="text"
+                           id="full_guess"
+                           name="full_guess"
+                           placeholder="Enter complete movie name">
+
+                </div>
+
+                <button type="submit"
+                        name="action"
+                        value="full_guess"
+                        class="start-btn">
+
+                    Submit Movie Guess →
+
+                </button>
+
+            </form>
+<form action="{{ url_for('restart_game') }}" method="POST">
+    <button type="submit" class="restart-btn">
+        ↻ Restart Game
+    </button>
+</form>
+            <!-- Display messages -->
+            <p class="description" style="margin-top: 25px;">
+                {{ message }}
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
